@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local Storage</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(to right,#e3f2fd,#f5f9ff);
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.container{
+background-color:white;
+padding:40px;
+border-radius:15px;
+box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+text-align:center;
+width:400px;
+}
+
+h2{
+color:#1565c0;
+margin-bottom:25px;
+font-size:30px;
+}
+
+select{
+width:100%;
+padding:12px;
+font-size:16px;
+border:2px solid #90caf9;
+border-radius:8px;
+outline:none;
+margin-bottom:25px;
+}
+
+select:focus{
+border-color:#1565c0;
+box-shadow:0px 0px 8px rgba(21,101,192,0.3);
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+margin:10px;
+transition:0.3s;
+}
+
+.saveBtn{
+background-color:#1565c0;
+color:white;
+}
+
+.saveBtn:hover{
+background-color:#0d47a1;
+}
+
+.clearBtn{
+background-color:#e53935;
+color:white;
+}
+
+.clearBtn:hover{
+background-color:#c62828;
+}
+
+.info{
+margin-top:20px;
+font-size:17px;
+color:#555;
+}
+
+</style>
+
+<script>
+
+function savePreference(){
+
+let event=
+document.getElementById("event").value;
+
+localStorage.setItem(
+"preferredEvent",
+event
+);
+
+sessionStorage.setItem(
+"currentEvent",
+event
+);
+
+alert("✅ Preference Saved");
+
+}
+
+function loadPreference(){
+
+let savedEvent=
+localStorage.getItem(
+"preferredEvent"
+);
+
+if(savedEvent){
+
+document.getElementById("event").value=
+savedEvent;
+
+}
+
+}
+
+function clearStorage(){
+
+localStorage.clear();
+
+sessionStorage.clear();
+
+alert("🗑 Preferences Cleared");
+
+}
+
+</script>
+
+</head>
+
+<body onload="loadPreference()">
+
+<div class="container">
+
+<h2>🎉 Save Event Preference</h2>
+
+<select id="event">
+
+<option>Music</option>
+<option>Sports</option>
+<option>Workshop</option>
+
+</select>
+
+<br>
+
+<button
+class="saveBtn"
+onclick="savePreference()">
+
+Save Preference
+
+</button>
+
+<button
+class="clearBtn"
+onclick="clearStorage()">
+
+Clear Preferences
+
+</button>
+
+<p class="info">
+Your selected event will be stored using Local Storage.
+</p>
+
+</div>
+
+</body>
+</html>
+

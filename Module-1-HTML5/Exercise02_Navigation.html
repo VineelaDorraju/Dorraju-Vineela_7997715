@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Example</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f3f7fa;
+            color: #333;
+        }
+
+
+        nav {
+            background-color: #1565c0;
+            padding: 18px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd54f;
+        }
+
+        section {
+            background-color: white;
+            width: 80%;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        section h2 {
+            color: #1565c0;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        #home {
+            border-left: 8px solid #42a5f5;
+        }
+
+        #events {
+            border-left: 8px solid #66bb6a;
+        }
+
+        #contact {
+            border-left: 8px solid #ef5350;
+        }
+
+        footer {
+            background-color: #1565c0;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#events">Events</a>
+        <a href="#contact">Contact</a>
+        <a href="help.html" target="_blank">Help</a>
+    </nav>
+
+    <!-- Home Section -->
+
+    <section id="home">
+        <h2>Home Section</h2>
+        <p>
+            Welcome to our community portal. Here you can explore events,
+            activities, and updates happening around your area.
+        </p>
+    </section>
+    <section id="events">
+        <h2>Events Section</h2>
+        <p>
+            Community events such as cultural programs, workshops,
+            food festivals, and social activities will be displayed here.
+        </p>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Section</h2>
+        <p>Email: support@community.com</p>
+        <p>Phone: +91 98765 43210</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Community Navigation Portal | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

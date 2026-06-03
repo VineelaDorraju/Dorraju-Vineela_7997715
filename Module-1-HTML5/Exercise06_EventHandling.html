@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Handling</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:linear-gradient(to right,#e3f2fd,#f4f7fb);
+padding:40px;
+text-align:center;
+}
+
+.container{
+background-color:white;
+width:60%;
+margin:auto;
+padding:35px;
+border-radius:15px;
+box-shadow:0px 5px 15px rgba(0,0,0,0.2);
+}
+
+h2{
+color:#1565c0;
+margin-bottom:30px;
+font-size:35px;
+}
+
+label{
+font-size:18px;
+font-weight:bold;
+color:#333;
+}
+
+input,
+select,
+textarea{
+width:80%;
+padding:12px;
+margin-top:10px;
+margin-bottom:20px;
+border:2px solid #90caf9;
+border-radius:8px;
+font-size:16px;
+outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+border-color:#1565c0;
+box-shadow:0px 0px 8px rgba(21,101,192,0.4);
+}
+
+button{
+background-color:#1565c0;
+color:white;
+padding:12px 25px;
+border:none;
+border-radius:8px;
+font-size:18px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background-color:#0d47a1;
+transform:scale(1.05);
+}
+
+#fee{
+font-size:20px;
+font-weight:bold;
+color:#2e7d32;
+margin-bottom:20px;
+}
+
+img{
+width:220px;
+height:160px;
+border-radius:12px;
+border:4px solid #1565c0;
+transition:0.4s;
+box-shadow:0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.info{
+margin-top:10px;
+font-size:16px;
+color:#555;
+}
+
+#counter{
+font-weight:bold;
+color:#d84315;
+margin-top:10px;
+font-size:18px;
+}
+
+</style>
+
+<script>
+
+function validatePhone(){
+
+let phone=document.getElementById("phone").value;
+
+if(phone.length!=10){
+alert("Phone number should contain 10 digits");
+}
+else{
+alert("Phone number verified successfully");
+}
+
+}
+
+function showFee(){
+
+let event=document.getElementById("eventType").value;
+
+let fee=document.getElementById("fee");
+
+if(event=="Music"){
+fee.innerHTML="🎵 Fee: ₹500";
+}
+else if(event=="Sports"){
+fee.innerHTML="⚽ Fee: ₹300";
+}
+else{
+fee.innerHTML="🛠 Fee: ₹200";
+}
+
+}
+
+function submitForm(){
+alert("✅ Registration Submitted Successfully");
+}
+
+function enlargeImage(img){
+
+if(img.style.width=="400px"){
+img.style.width="220px";
+img.style.height="160px";
+}
+else{
+img.style.width="400px";
+img.style.height="300px";
+}
+
+}
+
+function countCharacters(){
+
+let text=document.getElementById("feedback").value;
+
+document.getElementById("counter").innerHTML=
+"Characters Typed: " + text.length;
+
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🎉 Event Handling Demo</h2>
+
+<label>Phone Number:</label>
+
+<br>
+
+<input
+type="text"
+id="phone"
+placeholder="Enter 10 digit number"
+onblur="validatePhone()">
+
+<br>
+
+<label>Select Event:</label>
+
+<br>
+
+<select
+id="eventType"
+onchange="showFee()">
+
+<option>Music</option>
+<option>Sports</option>
+<option>Workshop</option>
+
+</select>
+
+<p id="fee">Select an event to view fee</p>
+
+<button onclick="submitForm()">
+Submit
+</button>
+
+<br><br><br>
+
+<img
+src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop"
+ondblclick="enlargeImage(this)"
+alt="Event Image">
+
+<p class="info">
+Double click image to enlarge or shrink
+</p>
+
+<br><br>
+
+<label>Feedback:</label>
+
+<br>
+
+<textarea
+id="feedback"
+onkeyup="countCharacters()"
+rows="5"
+placeholder="Enter your feedback here..."></textarea>
+
+<p id="counter">Characters Typed: 0</p>
+
+</div>
+
+</body>
+</html>
